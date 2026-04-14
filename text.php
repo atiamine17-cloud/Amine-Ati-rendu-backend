@@ -50,12 +50,12 @@ require '../composer/vendor/autoload.php';
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
-// 1. Configuration
+// Configuration
 $apiKey = "bcb83088011460755a76eba2a2454dcc"; 
 $donnees = null;
 $erreur = null;
 
-// 2. Traitement de la recherche
+// Traitement de la recherche
 if (isset($_GET['ville']) && !empty($_GET['ville'])) {
     $ville = htmlspecialchars($_GET['ville']);
     $client = new Client();
@@ -101,6 +101,8 @@ if (isset($_GET['ville']) && !empty($_GET['ville'])) {
         <p><strong>Humidité :</strong> <?php echo $donnees['main']['humidity']; ?>%</p>
     <?php endif; ?>
 
+    // Traitement des erreurs
+ 
     <?php if ($erreur): ?>
         <p style="color: red;"><?php echo $erreur; ?></p>
     <?php endif; ?>
